@@ -6,7 +6,7 @@ function filterCarByAvailability(cars) {
   const result = [];
 
   // Tulis code-mu disini
-  cars.forEach((car) => {
+  cars.map((car) => {
     if (car.available === true) {
       result.push(car);
     }
