@@ -15,6 +15,7 @@ Dimana masing-masing file tersebut terdapat sebuah fungsi. Penjelasan terkait fu
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
+  - [Useful resources](#useful-resources)
 - [Author](#author)
 
 ## Overview
@@ -614,8 +615,11 @@ Contoh output:
 
 ### What I learned
 
-1. `forEach()` method
-2. `sort()` method
+1. Algoritma Bubble Sort
+
+### Useful resources
+
+- [Bubble Sort](https://www.geeksforgeeks.org/bubble-sort/) - Artikel ini berisi cara kerja dari Bubble Sort dan cara implementasinya
 
 ## Author
 
