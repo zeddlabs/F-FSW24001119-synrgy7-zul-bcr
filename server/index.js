@@ -1,5 +1,5 @@
 const http = require("http"); // mengimport module http bawaan node js untuk membuat server
-const { PORT = 1337 } = process.env; // menyimpan variable PORT di enviroment sistem
+const { PORT = 3000 } = process.env; // menyimpan variable PORT di enviroment sistem
 
 const fs = require("fs"); // mengimport module fs untuk membaca file sistem
 const path = require("path"); // mengimport module path untuk membantu dalam manipulasi path file / url
