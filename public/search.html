@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Temukan Mobil - Binar Car Rental</title>
+    <!-- HELVETICA -->
+    <link
+      href="https://fonts.cdnfonts.com/css/helvetica-neue-5"
+      rel="stylesheet"
+    />
+
+    <!-- BOOTSTRAP -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="./css/custom_styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav
+        class="navbar position-absolute top-0 start-0 end-0 navbar-expand-lg bg-transparent"
+      >
+        <div class="container">
+          <a class="navbar-brand" href="#">Binar Car Rental</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="offcanvas offcanvas-end"
+            tabindex="-1"
+            id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel"
+          >
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                Binar Car Rental
+              </h5>
+              <button
+                type="button"
+                class="navbar__button-close btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link" href="#our-services">Our Services</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#why-us">Why Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#testimonial">Testimonial</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#faq">FAQ</a>
+                </li>
+              </ul>
+              <a class="navbar__register-button btn btn-success" href="#"
+                >Register</a
+              >
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero section container">
+        <div class="row align-items-center justify-content-between gap-5">
+          <div class="hero__data col-lg-6">
+            <h1 class="hero__title">
+              Sewa & Rental Mobil Terbaik di kawasan Sumatera Utara
+            </h1>
+            <p class="hero__desc">
+              Selamat datang di Binar Car Rental. Kami menyediakan mobil
+              kualitas terbaik dengan harga terjangkau. Selalu siap melayani
+              kebutuhanmu untuk sewa mobil selama 24 jam.
+            </p>
+          </div>
+          <div class="hero__img col-lg">
+            <img class="img-fluid" src="./images/img_car.png" alt="" />
+          </div>
+        </div>
+      </section>
+
+      <div class="filter__panel container mb-5">
+        <div class="row g-3 ms-0">
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="filter__form-group">
+              <input type="hidden" name="driverType" id="driverInput" />
+
+              <span class="filter__label">Tipe Driver</span>
+              <div class="filter__dropdown-btn" id="driver">
+                <span>Pilih Tipe Driver</span>
+                <svg
+                  width="19"
+                  height="18"
+                  viewBox="0 0 19 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5.25 6.75L9.75 11.25L14.25 6.75"
+                    stroke="#8A8A8A"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <ul class="filter__dropdown">
+                <li class="filter__dropdown-item" data-value="Dengan Sopir">
+                  Dengan Sopir
+                </li>
+                <li
+                  class="filter__dropdown-item"
+                  data-value="Tanpa Sopir (Lepas Kunci)"
+                >
+                  Tanpa Sopir (Lepas Kunci)
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <label for="" class="form-label">Pilih Tanggal</label>
+            <input
+              type="date"
+              class="form-control"
+              placeholder="Pilih Tanggal"
+            />
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="filter__form-group">
+              <input type="hidden" name="time" id="timeInput" />
+
+              <span class="filter__label">Pilih Waktu</span>
+              <div class="filter__dropdown-btn" id="time">
+                <span>Pilih Waktu</span>
+                <svg
+                  width="19"
+                  height="18"
+                  viewBox="0 0 19 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_94189_363)">
+                    <path
+                      d="M9.25 16.5C13.3921 16.5 16.75 13.1421 16.75 9C16.75 4.85786 13.3921 1.5 9.25 1.5C5.10786 1.5 1.75 4.85786 1.75 9C1.75 13.1421 5.10786 16.5 9.25 16.5Z"
+                      stroke="#8A8A8A"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M9.25 4.5V9L12.25 10.5"
+                      stroke="#8A8A8A"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_94189_363">
+                      <rect
+                        width="18"
+                        height="18"
+                        fill="white"
+                        transform="translate(0.25)"
+                      />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </div>
+              <ul class="filter__dropdown">
+                <li class="filter__dropdown-item" data-value="08:00">
+                  <span>08:00</span>
+                  <span>WIB</span>
+                </li>
+                <li class="filter__dropdown-item" data-value="09:00">
+                  <span>09:00</span>
+                  <span>WIB</span>
+                </li>
+                <li class="filter__dropdown-item" data-value="10:00">
+                  <span>10:00</span>
+                  <span>WIB</span>
+                </li>
+                <li class="filter__dropdown-item" data-value="11:00">
+                  <span>11:00</span>
+                  <span>WIB</span>
+                </li>
+                <li class="filter__dropdown-item" data-value="12:00">
+                  <span>12:00</span>
+                  <span>WIB</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="filter__form-group">
+              <label class="filter__label">Jumlah Penumpang (optional)</label>
+              <div class="filter__input-box" id="passenger">
+                <input
+                  type="number"
+                  name="passengerCount"
+                  id="passengerInput"
+                  placeholder="Jumlah Penumpang"
+                  min="1"
+                />
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_94228_960)">
+                    <path
+                      d="M17.25 15.7502V14.2502C17.2495 13.5855 17.0283 12.9397 16.621 12.4144C16.2138 11.889 15.6436 11.5138 15 11.3477"
+                      stroke="#8A8A8A"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M12.75 15.75V14.25C12.75 13.4544 12.4339 12.6913 11.8713 12.1287C11.3087 11.5661 10.5456 11.25 9.75 11.25H3.75C2.95435 11.25 2.19129 11.5661 1.62868 12.1287C1.06607 12.6913 0.75 13.4544 0.75 14.25V15.75"
+                      stroke="#8A8A8A"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M12 2.34766C12.6453 2.51288 13.2173 2.88818 13.6257 3.41439C14.0342 3.9406 14.2559 4.58778 14.2559 5.25391C14.2559 5.92003 14.0342 6.56722 13.6257 7.09342C13.2173 7.61963 12.6453 7.99493 12 8.16016"
+                      stroke="#8A8A8A"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M6.75 8.25C8.40685 8.25 9.75 6.90685 9.75 5.25C9.75 3.59315 8.40685 2.25 6.75 2.25C5.09315 2.25 3.75 3.59315 3.75 5.25C3.75 6.90685 5.09315 8.25 6.75 8.25Z"
+                      stroke="#8A8A8A"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_94228_960">
+                      <rect width="18" height="18" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="" class="filter__btn btn btn-success g-3">Cari Mobil</a>
+      </div>
+      <div class="filter__backdrop"></div>
+
+      <section class="result container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card">ok</div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card">ok</div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card">ok</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer container">
+      <div class="footer__contacts">
+        <p class="footer__address">
+          Jalan Suroyo No. 161 Mayangan Kota Probolonggo 672000
+        </p>
+        <p class="footer__email">binarcarrental@gmail.com</p>
+        <p class="footer__phone">081-233-334-808</p>
+      </div>
+      <div class="footer__navigation">
+        <a href="#our-servicess" class="footer__navigation-item"
+          >Our Services</a
+        >
+        <a href="#why-us" class="footer__navigation-item">Why Us</a>
+        <a href="#testimonial" class="footer__navigation-item">Testimonial</a>
+        <a href="#faq" class="footer__navigation-item">FAQ</a>
+      </div>
+      <div class="footer__socials">
+        <p>Connect with us</p>
+        <div class="footer__social-media">
+          <a href="#" class="footer__social-icon">
+            <img src="./icons/fi_facebook.svg" alt="" />
+          </a>
+          <a href="#" class="footer__social-icon">
+            <img src="./icons/fi_instagram.svg" alt="" />
+          </a>
+          <a href="#" class="footer__social-icon">
+            <img src="./icons/fi_twitter.svg" alt="" />
+          </a>
+          <a href="#" class="footer__social-icon">
+            <img src="./icons/fi_mail.svg" alt="" />
+          </a>
+          <a href="#" class="footer__social-icon">
+            <img src="./icons/fi_twitch.svg" alt="" />
+          </a>
+        </div>
+      </div>
+      <div class="footer__copyright">
+        <p>Copyright Binar 2024</p>
+        <a href="#" class="footer__brand">Binar Car Rental</a>
+      </div>
+    </footer>
+
+    <!-- BOOTSTRAP -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="./scripts/app.js"></script>
+    <script src="./scripts/main.js"></script>
+  </body>
+</html>

@@ -440,6 +440,16 @@ body {
   padding: 1.5rem;
   border-radius: .5rem;
   margin-top: -40px;
+  z-index: 1031;
+}
+
+body:has(.offcanvas.show) .filter__panel {
+  z-index: 1029;
+}
+
+.filter__panel.active {
+  clip-path: inset(-100vmax -100vmax);
+  box-shadow: 0 0 100vmax 100vmax rgba(0, 0, 0, .6);
 }
 
 .filter__panel .row {
@@ -450,14 +460,115 @@ body {
   flex-shrink: 0;
 }
 
-.form-control, .form-select {
-  border-width: 1px;
-  border-radius: 2px;
+.filter__form-group {
+  position: relative;
 }
 
-.form-control:focus, .form-select:valid:focus {
-  box-shadow: none;
+.filter__label {
+  display: inline-block;
+  margin-bottom: 0.25rem;
+  color: var(--neutral-04);
+}
+
+.filter__dropdown-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem .75rem;
+  border: 1px solid var(--neutral-02);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.filter__dropdown-btn.active {
   border-color: var(--lime-green-04);
+}
+
+#driver.filter__dropdown-btn.active svg {
+  transform: rotate(180deg);
+}
+
+.filter__dropdown-btn.active ~ .filter__dropdown {
+  display: block;
+}
+
+.filter__dropdown-btn span {
+  flex-grow: 1;
+  color: var(--neutral-03);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.filter__dropdown-btn.active span {
+  color: var(--neutral-04);
+}
+
+.filter__dropdown-btn svg {
+  flex-grow: 0;
+}
+
+.filter__dropdown {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 4px);
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0px 2px 16px 0px #0000001A;
+  display: none;
+  z-index: 1;
+}
+
+.filter__dropdown-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem .75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter__dropdown-item.active, .filter__dropdown-item:hover {
+  background-color: var(--lime-green-02);
+  color: var(--lime-green-04);
+  font-weight: 500;
+}
+
+.filter__input-box {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding-right: 0.75rem;
+  border: 1px solid var(--neutral-02);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.filter__input-box input {
+  border: none;
+  outline: none;
+  width: 100%;
+  background-color: transparent;
+  padding: 0.5rem .75rem;
+  color: var(--neutral-03);
+  font-weight: 300;
+}
+
+.filter__input-box input::placeholder {
+  color: var(--neutral-03);
+  font-weight: 300;
+}
+
+.filter__input-box input:focus {
+  border-color: var(--lime-green-04);
+}
+
+.filter__input-box svg {
+  flex-shrink: 0;
 }
 
 .result {
