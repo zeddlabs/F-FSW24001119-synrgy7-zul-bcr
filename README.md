@@ -1,39 +1,47 @@
-# Binar: Challenge 04
+# Challenge 4 - Filter Cars
 
-- Mulai modifikasi file `server/index.js` apabila ingin membuat HTTP server.
-- Mulai modifikasi folder `public` apabila ingin memodifikasi HTML.
+Pada challenge di chapter ke-4 ini, kami diharuskan membuat sebuah fitur dimana dapat melakukan filter terhadap data mobil yang disediakan dalam bentuk JSON.
 
-# `Binar` class
+## Table of contents
 
-Class ini berisi 1 static method saja, yang berfungsi untuk mengambil data mobil dari internet.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-```typescript
-interface Car {
-  id: string;
-  plate: string;
-  manufacture: string;
-  model: string;
-  image: string;
-  rentPerDay: number;
-  capacity: number;
-  description: string;
-  transmission: string;
-  available: boolean;
-  type: string;
-  year: string;
-  options: Array<string>;
-  specs: Array<string>;
-}
+## Overview
 
-interface Binar {
-  listCars(filterer: (car: Car) => boolean): Array<Car>
-}
-```
+### The challenge
 
-Method `listCars` ini akan menerima fungsi yang mana harus mengembalikan `boolean` sebagai nilainya. 
-Fungsi ini akan dijalankan untuk masing-masing item di dalam list of cars, yang mana jika nilainya `true`,
-maka akan ditampilkan di dalam list tersebut.
+1. Menerapkan OOP
+2. Menampilkan halaman desain yang bisa berubah secara dinamis di browser
+3. Menggunakan DOM untuk memanipulasi halaman secara realtime
+4. Menggunakan Node JS sebagai running environment (HTTP Server)
 
-# Tips
+## My process
 
-Just, hack it bro!
+### Built with
+
+- Semantic HTML5 markup
+- CSS custom properties
+- JavaScript OOP
+- [Bootstrap 5](https://getbootstrap.com/) - CSS Framework
+- [NodeJS](https://nodejs.org/) - Runtime JavaScript
+- [Moment.js]() - Date & Time Library
+
+### What I learned
+
+1. JavaScript OOP
+2. Custom Date Format
+3. Filtering Data
+
+### Useful resources
+
+- [Create Custom Date Picker](https://www.youtube.com/watch?v=lDv8YsTgSAs)
+
+## Author
+
+- Mhd Zulfikar Pinem - [zulfikarm022@gmail.com](mailto:zulfikarm022@gmail.com)
