@@ -1,4 +1,4 @@
-class Car {
+class Car extends Component {
   static list = [];
 
   static init(cars) {
@@ -23,6 +23,8 @@ class Car {
     availableAt,
     driverType,
   }) {
+    super();
+
     this.id = id;
     this.plate = plate;
     this.manufacture = manufacture;
