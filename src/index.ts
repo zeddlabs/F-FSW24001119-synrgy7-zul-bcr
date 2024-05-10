@@ -1,4 +1,4 @@
 import 'dotenv/config'
-import config from './configs/knex.config'
+import config from './configs/knex.conf'
 
 console.log(config)
