@@ -1,4 +1,5 @@
 import type { Knex } from "knex"
+import { onUpdateTrigger } from "../../configs/knex.conf"
 
 export async function up(knex: Knex): Promise<void> {
   return knex.schema.createTable('cars', table => {
@@ -12,7 +13,7 @@ export async function up(knex: Knex): Promise<void> {
     table.timestamps(true, true)
 
     table.foreign('size_id').references('id').inTable('sizes')
-  })
+  }).then(() => knex.raw(onUpdateTrigger('cars')))
 }
 
 export async function down(knex: Knex): Promise<void> {
