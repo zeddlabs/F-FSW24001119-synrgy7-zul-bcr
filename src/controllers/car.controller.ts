@@ -1,8 +1,12 @@
 import { Request, Response, NextFunction } from "express"
+import { getAllCars } from '../services/car.service'
 
-const index = (req: Request, res: Response, next: NextFunction): any => {
+const index = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
   try {
-    res.status(200).json({ message: 'GET /cars' })
+    res.status(200).json({ 
+      message: 'GET /cars',
+      data: await getAllCars()
+    })
   } catch (error: Error | any) {
     next(
       new Error(`An error occurred while trying to get all cars: ${error}`)
