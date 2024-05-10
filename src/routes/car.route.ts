@@ -1,35 +1,12 @@
-import { Router, Request, Response } from "express"
+import { Router } from "express"
+import carController from '../controllers/car.controller'
 
 const carRouter: Router = Router()
 
-carRouter.get('/cars', (req: Request, res: Response) => {
-  res.status(200).json({ 
-    message: 'GET /cars' 
-  })
-})
-
-carRouter.get('/cars/:id', (req: Request, res: Response) => {
-  res.status(200).json({ 
-    message: 'GET /cars/:id' 
-  })
-})
-
-carRouter.post('/cars', (req: Request, res: Response) => {
-  res.status(201).json({ 
-    message: 'POST /cars' 
-  })
-})
-
-carRouter.put('/cars/:id', (req: Request, res: Response) => {
-  res.status(200).json({ 
-    message: 'PUT /cars/:id' 
-  })
-})
-
-carRouter.delete('/cars/:id', (req: Request, res: Response) => {
-  res.status(200).json({ 
-    message: 'DELETE /cars/:id' 
-  })
-})
+carRouter.get('/cars', carController.index)
+carRouter.get('/cars/:id', carController.show)
+carRouter.post('/cars', carController.store)
+carRouter.put('/cars/:id', carController.update)
+carRouter.delete('/cars/:id', carController.destroy)
 
 export default carRouter
