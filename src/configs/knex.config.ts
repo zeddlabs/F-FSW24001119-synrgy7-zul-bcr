@@ -1,5 +1,5 @@
-require('dotenv').config()
-import { Knex } from "knex";
+import 'dotenv/config'
+import { Knex } from "knex"
 
 const config: Knex.Config = {
   client: process.env.DB_DRIVER,
