@@ -1,7 +1,7 @@
 import 'dotenv/config'
 import { Knex } from "knex"
 
-const config: Knex.Config = {
+const knexConfig: Knex.Config = {
   client: process.env.DB_DRIVER,
   connection: {
     host: process.env.DB_HOST,
@@ -17,4 +17,4 @@ const config: Knex.Config = {
   },
 }
 
-export default config
+export default knexConfig
