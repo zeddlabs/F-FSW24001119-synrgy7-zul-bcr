@@ -1,5 +1,5 @@
 import type { Knex } from "knex";
-import { onUpdateTrigger } from "../../configs/knex.conf";
+import { onUpdateTrigger } from "../../helpers/knex.helper";
 
 export async function up(knex: Knex): Promise<void> {
   return knex.schema.createTable('sizes', table => {
