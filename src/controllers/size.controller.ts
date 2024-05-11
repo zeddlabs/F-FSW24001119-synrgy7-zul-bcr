@@ -33,7 +33,9 @@ const show = async (req: Request, res: Response, next: NextFunction): Promise<an
 
 const store = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
   try {
-    const data = await storeSize({ name: req.body.name })
+    const { name } = req.body
+
+    const data = await storeSize({ name })
 
     res.status(201).json({ 
       message: 'Successfully create a size',

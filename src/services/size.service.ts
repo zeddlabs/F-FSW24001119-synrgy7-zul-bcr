@@ -1,28 +1,29 @@
 import db from "../configs/database.conf";
-import ISize from "../models/size.model";
+import SizeDto from "../dtos/size.dto";
+import Size from "../models/size.model";
 
-const getAllSizes = async (): Promise<ISize[]> => {
-  const data: ISize[] = await db<ISize>('sizes');
+const getAllSizes = async (): Promise<Size[]> => {
+  const data: Size[] = await db<Size>('sizes');
   return data;
 }
 
-const getSizeById = async (id: number): Promise<ISize> => {
-  const [data]: ISize[] = await db<ISize>('sizes').where({ id });
+const getSizeById = async (id: number): Promise<Size> => {
+  const [data]: Size[] = await db<Size>('sizes').where({ id });
   return data;
 }
 
-const storeSize = async (size: ISize): Promise<ISize> => {
-  const [data]: ISize[] = await db<ISize>('sizes').insert(size).returning('*');
+const storeSize = async (size: SizeDto): Promise<Size> => {
+  const [data]: Size[] = await db<Size>('sizes').insert(size).returning('*');
   return data;
 }
 
-const updateSize = async (id: number, size: ISize): Promise<ISize> => {
-  const [data]: ISize[] = await db<ISize>('sizes').where({ id }).update(size).returning('*');
+const updateSize = async (id: number, size: SizeDto): Promise<Size> => {
+  const [data]: Size[] = await db<Size>('sizes').where({ id }).update(size).returning('*');
   return data;
 }
 
-const deleteSize = async (id: number): Promise<ISize> => {
-  const [data]: ISize[] = await db<ISize>('sizes').where({ id }).del().returning('*');
+const deleteSize = async (id: number): Promise<Size> => {
+  const [data]: Size[] = await db<Size>('sizes').where({ id }).del().returning('*');
   return data;
 }
 
