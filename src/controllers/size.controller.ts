@@ -1,11 +1,19 @@
 import { Request, Response, NextFunction } from "express"
 import { deleteSize, getAllSizes, getSizeById, storeSize, updateSize } from "../services/size.service"
+import Size from "../models/size.model"
 
 const index = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
   try {
+    let message: string = 'Successfully get all sizes'
+    const data: Size[] = await getAllSizes()
+    const count: number = data.length
+
+    if (count === 0) message = 'No sizes found'
+
     res.status(200).json({ 
-      message: 'Successfully get all sizes',
-      data: await getAllSizes()
+      message,
+      count,
+      data
     })
   } catch (error: Error | any) {
     next(
@@ -18,7 +26,13 @@ const show = async (req: Request, res: Response, next: NextFunction): Promise<an
   try {
     const { id } = req.params
 
-    const data = await getSizeById(Number(id))
+    const data: Size = await getSizeById(Number(id))
+
+    if (!data) {
+      return res.status(404).json({
+        message: 'Size not found'
+      })
+    }
 
     res.status(200).json({
       message: 'Successfully get a size',
@@ -35,7 +49,7 @@ const store = async (req: Request, res: Response, next: NextFunction): Promise<a
   try {
     const { name } = req.body
 
-    const data = await storeSize({ name })
+    const data: Size = await storeSize({ name })
 
     res.status(201).json({ 
       message: 'Successfully create a size',
@@ -53,7 +67,13 @@ const update = async (req: Request, res: Response, next: NextFunction): Promise<
     const { id } = req.params
     const { name } = req.body
 
-    const data = await updateSize(Number(id), { name })
+    const data: Size = await updateSize(Number(id), { name })
+
+    if (!data) {
+      return res.status(404).json({
+        message: 'Size not found'
+      })
+    }
 
     res.status(200).json({
       message: 'Successfully update a size',
@@ -70,7 +90,13 @@ const destroy = async (req: Request, res: Response, next: NextFunction): Promise
   try {
     const { id } = req.params
 
-    const data = await deleteSize(Number(id))
+    const data: Size = await deleteSize(Number(id))
+
+    if (!data) {
+      return res.status(404).json({
+        message: 'Size not found'
+      })
+    }
 
     res.status(200).json({
       message: 'Successfully delete a size',
