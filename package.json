@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon ./src/index.ts",
     "db:migrate": "node -r dotenv/config ./node_modules/knex/bin/cli.js migrate:latest --knexfile src/configs/knex.conf.ts",
-    "db:rollback": "node -r dotenv/config ./node_modules/knex/bin/cli.js migrate:rollback --knexfile src/configs/knex.conf.ts"
+    "db:rollback": "node -r dotenv/config ./node_modules/knex/bin/cli.js migrate:rollback --all --knexfile src/configs/knex.conf.ts",
+    "db:seed": "node -r dotenv/config ./node_modules/knex/bin/cli.js seed:run --knexfile src/configs/knex.conf.ts"
   },
   "keywords": [],
   "author": "",
