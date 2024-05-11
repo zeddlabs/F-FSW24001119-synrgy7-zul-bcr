@@ -1,3 +1,3 @@
-export default interface SizeDto {
+export interface CreateSizeDto {
     name: string;
 } 
