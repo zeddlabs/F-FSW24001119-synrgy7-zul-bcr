@@ -1,5 +1,5 @@
 import db from "../configs/database.conf"
-import ICar from "../types/car.type"
+import ICar from "../models/car.model"
 
 const getAllCars = async (): Promise<ICar[]> => {
   const data: ICar[] = await db<ICar>('cars')

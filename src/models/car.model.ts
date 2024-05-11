@@ -1,10 +1,10 @@
-import ISize from "./size.type"
+import Size from "./size.model"
 
-export default interface ICar {
+export default interface Car {
   id?: number
   name: string
   rent_per_day: number
-  size: ISize
+  size: Size
   image: string
   start_rent?: Date
   finish_rent?: Date

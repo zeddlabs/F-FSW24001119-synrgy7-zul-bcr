@@ -1,5 +1,5 @@
 import db from "../configs/database.conf";
-import ISize from "../types/size.type";
+import ISize from "../models/size.model";
 
 const getAllSizes = async (): Promise<ISize[]> => {
   const data: ISize[] = await db<ISize>('sizes');
