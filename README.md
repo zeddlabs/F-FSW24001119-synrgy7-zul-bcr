@@ -26,7 +26,7 @@ Pada challenge di chapter ke-5 ini, kami diharuskan membuat sebuah RESTful API s
 
 ### Entity Relationship Diagram
 
-![](./Binar Car Rental Diagram.png)
+![](./erd.png)
 
 ### Endpoints
 
