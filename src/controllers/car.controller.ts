@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express"
 import { deleteCar, getAllCars, getCarById, storeCar, updateCar } from '../services/car.service'
 import Car from "../models/car.model"
-import { CreateCarDto } from "../dtos/car.dto"
+import { unlinkSync } from "fs"
 
 const index = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
   try {
@@ -77,19 +77,20 @@ const update = async (req: Request, res: Response, next: NextFunction): Promise<
     let image: string = ''
 
     const car: Car = await getCarById(Number(id))
+    if (!car) {
+      return res.status(404).json({
+        message: 'Car not found'
+      })
+    }
+
     if (req.file) {
       image = `/public/uploads/images/${req.file.filename}`
+      unlinkSync(`.${car.image}`)
     } else {
       image = car.image
     }
 
     const data: Car = await updateCar(Number(id), { name, rent_per_day, size_id, image, start_rent, finish_rent })
-
-    if (!data) {
-      return res.status(404).json({
-        message: 'Car not found'
-      })
-    }
 
     res.status(200).json({
       message: 'Successfully update a car',
@@ -106,17 +107,18 @@ const destroy = async (req: Request, res: Response, next: NextFunction): Promise
   try {
     const { id } = req.params
 
-    const data: Car = await deleteCar(Number(id))
-
-    if (!data) {
+    const car: Car = await getCarById(Number(id))
+    if (!car) {
       return res.status(404).json({
         message: 'Car not found'
       })
     }
 
+    await deleteCar(Number(id))
+    unlinkSync(`.${car.image}`)
+
     res.status(200).json({
-      message: 'Successfully delete a car',
-      data
+      message: 'Successfully delete a car'
     })
   } catch (error: Error | any) {
     next(

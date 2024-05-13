@@ -29,8 +29,8 @@ const updateCar = async (id: number, car: UpdateCarDto): Promise<Car> => {
   return data
 }
 
-const deleteCar = async (id: number): Promise<Car> => {
-  const [data]: Car[] = await db<Car>('cars').where({ id }).del().returning('id')
+const deleteCar = async (id: number): Promise<number> => {
+  const data = await db<Car>('cars').where({ id }).del()
 
   return data
 }

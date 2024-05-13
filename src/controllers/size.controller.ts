@@ -67,14 +67,15 @@ const update = async (req: Request, res: Response, next: NextFunction): Promise<
     const { id } = req.params
     const { name } = req.body
 
-    const data: Size = await updateSize(Number(id), { name })
-
-    if (!data) {
+    const size: Size = await getSizeById(Number(id))
+    if (!size) {
       return res.status(404).json({
         message: 'Size not found'
       })
     }
 
+    const data: Size = await updateSize(Number(id), { name })
+    
     res.status(200).json({
       message: 'Successfully update a size',
       data
@@ -90,17 +91,17 @@ const destroy = async (req: Request, res: Response, next: NextFunction): Promise
   try {
     const { id } = req.params
 
-    const data: Size = await deleteSize(Number(id))
-
-    if (!data) {
+    const size: Size = await getSizeById(Number(id))
+    if (!size) {
       return res.status(404).json({
         message: 'Size not found'
       })
     }
 
+    const data: number = await deleteSize(Number(id))
+
     res.status(200).json({
-      message: 'Successfully delete a size',
-      data
+      message: 'Successfully delete a size'
     })
   } catch (error: Error | any) {
     next(
