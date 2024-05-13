@@ -1,3 +1,3 @@
 export interface CreateSizeDto {
-    name: string;
+    name: string
 } 

@@ -1,8 +1,8 @@
-import { Knex } from "knex";
+import { Knex } from "knex"
 
 export async function seed(knex: Knex): Promise<void> {
     // Deletes ALL existing entries
-    await knex("cars").del();
+    await knex("cars").del()
 
     // Inserts seed entries
     await knex("cars").insert([
@@ -30,5 +30,5 @@ export async function seed(knex: Knex): Promise<void> {
             size_id: 3,
             image: "/public/uploads/images/fortuner.jpg",
         },
-    ]);
-};
+    ])
+}
