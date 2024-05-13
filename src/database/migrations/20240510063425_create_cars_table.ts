@@ -12,7 +12,7 @@ export async function up(knex: Knex): Promise<void> {
     table.date('finish_rent')
     table.timestamps(true, true)
 
-    table.foreign('size_id').references('id').inTable('sizes')
+    table.foreign('size_id').references('id').inTable('sizes').onDelete('CASCADE')
   }).then(() => knex.raw(onUpdateTrigger('cars')))
 }
 
