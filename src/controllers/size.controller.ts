@@ -49,6 +49,12 @@ const store = async (req: Request, res: Response, next: NextFunction): Promise<a
   try {
     const { name } = req.body
 
+    if (!name) {
+      return res.status(400).json({
+        message: 'Field name is required'
+      })
+    }
+
     const data: Size = await storeSize({ name })
 
     res.status(201).json({ 

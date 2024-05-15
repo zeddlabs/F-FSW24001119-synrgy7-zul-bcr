@@ -48,13 +48,14 @@ const show = async (req: Request, res: Response, next: NextFunction): Promise<an
 
 const store = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
   try {
-    if (!req.body || !req.file) {
+    const { name, rent_per_day, size_id } = req.body
+
+    if (!name || !rent_per_day || !size_id || !req.file) {
       return res.status(400).json({
-        message: 'Invalid request'
+        message: 'All fields (name, rent_per_day, size_id) are required'
       })
     }
 
-    const { name, rent_per_day, size_id } = req.body
     const image = `/public/uploads/images/${req.file.filename}`
 
     const data: Car = await storeCar({ name, rent_per_day, size_id, image })
