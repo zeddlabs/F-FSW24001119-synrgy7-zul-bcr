@@ -27,7 +27,7 @@ Pada challenge di chapter ke-5 ini, kami diharuskan membuat sebuah RESTful API s
 
 ### Quick Start
 
-- Clone repo: `git clone -b Challenge_5 --single-branch https://github.com/muhfachriannoor/F-FSW24001119-synrgy7-fac-bcr.git`
+- Clone repo: `git clone -b Challenge_5 --single-branch https://github.com/zulfikarpinem/F-FSW24001119-synrgy7-zul-bcr.git`
 - Pindah ke direktori yang baru di clone
 - Jalankan `pnpm install`
 - Copy file `.env.example` menjadi `.env`, dan sesuaikan _variable_-nya
