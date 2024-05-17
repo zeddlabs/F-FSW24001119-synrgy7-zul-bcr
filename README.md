@@ -5,7 +5,8 @@ Pada challenge di chapter ke-5 ini, kami diharuskan membuat sebuah RESTful API s
 ## Table of contents
 
 - [Overview](#overview)
-  - [The challenge](#the-challenge)
+  - [The Challenge](#the-challenge)
+  - [Quick Start](#quick-start)
   - [Entity Relationship Diagram](#entity-relationship-diagram)
   - [Endpoints](#endpoints)
 - [Example](#example)
@@ -23,6 +24,17 @@ Pada challenge di chapter ke-5 ini, kami diharuskan membuat sebuah RESTful API s
 
 1. Membuat HTTP Server yang dapat digunakan untuk melakukan manajemen data mobil
 2. Membuat Entity Relationship Diagram dengan menggunakan dbdiagram.io
+
+### Quick Start
+
+- Clone repo: `git clone -b Challenge_5 --single-branch https://github.com/muhfachriannoor/F-FSW24001119-synrgy7-fac-bcr.git`
+- Pindah ke direktori yang baru di clone
+- Jalankan `pnpm install`
+- Copy file `.env.example` menjadi `.env`, dan sesuaikan _variable_-nya
+- Untuk menjalankan _migration_, lakukan `pnpm run db:migrate`
+- Untuk menjalankan _seeder_, lakukan `pnpm run db:seed`
+- Jalankan server menggunakan `pnpm run dev`
+- That's it.
 
 ### Entity Relationship Diagram
 
