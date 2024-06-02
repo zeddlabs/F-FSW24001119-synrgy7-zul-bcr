@@ -2,6 +2,7 @@ import { Request, Response } from "express"
 import userService from "../../../services/user.service"
 import { validationResult } from "express-validator"
 import bcrypt from "bcryptjs"
+import IRequest from "../../../types/request.type"
 
 const index = async (req: Request, res: Response): Promise<any> => {
   try {
@@ -129,10 +130,30 @@ const destroy = async (req: Request, res: Response): Promise<any> => {
   }
 }
 
+const current = async (req: IRequest, res: Response): Promise<any> => {
+  try {
+    const { id } = req.user
+
+    const user = await userService.getById(id)
+
+    res.status(200).json({
+      status: 'OK',
+      message: 'Successfully get current user',
+      data: user
+    })
+  } catch (error: any) {
+    res.status(404).json({
+      status: 'FAIL',
+      message: error.message
+    })
+  }
+}
+
 export default {
   index,
   show,
   store,
   update,
-  destroy
+  destroy,
+  current
 }

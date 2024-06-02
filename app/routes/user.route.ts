@@ -50,4 +50,10 @@ userRouter.route('/users/:id')
     controllers.api.v1.userController.destroy
   )
 
+userRouter.route('/user/current')
+  .get(
+    jwtValidation as any,
+    controllers.api.v1.userController.current as any
+  )
+
 export default userRouter
