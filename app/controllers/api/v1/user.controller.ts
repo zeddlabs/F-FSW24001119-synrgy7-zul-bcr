@@ -1,5 +1,7 @@
 import { Request, Response } from "express"
 import userService from "../../../services/user.service"
+import { validationResult } from "express-validator"
+import bcrypt from "bcryptjs"
 
 const index = async (req: Request, res: Response): Promise<any> => {
   try {
@@ -40,11 +42,19 @@ const show = async (req: Request, res: Response): Promise<any> => {
 
 const store = async (req: Request, res: Response): Promise<any> => {
   try {
+    const validateRequest = validationResult(req)
+    if (!validateRequest.isEmpty()) {
+      return res.status(400).json({
+        status: 'FAIL',
+        message: 'Validation error',
+        errors: validateRequest.array()
+      })
+    }
+
     const user = req.body
-
-    const avatar = `/public/uploads/avatars/${req.file!.filename}`
-
-    const newUser = await userService.store({ ...user, avatar })
+    const avatar = `/public/uploads/images/${req.file!.filename}`
+    const password = bcrypt.hashSync(user.password, 10)
+    const newUser = await userService.store({ ...user, avatar, password })
 
     res.status(201).json({
       status: 'OK',
@@ -61,6 +71,15 @@ const store = async (req: Request, res: Response): Promise<any> => {
 
 const update = async (req: Request, res: Response): Promise<any> => {
   try {
+    const validateRequest = validationResult(req)
+    if (!validateRequest.isEmpty()) {
+      return res.status(400).json({
+        status: 'FAIL',
+        message: 'Validation error',
+        errors: validateRequest.array()
+      })
+    }
+
     const { id } = req.params
     const user = req.body
     let image: string | undefined
@@ -68,9 +87,13 @@ const update = async (req: Request, res: Response): Promise<any> => {
     const userData = await userService.getById(id)
 
     if (req.file) {
-      image = `/public/uploads/avatars/${req.file.filename}`
+      image = `/public/uploads/images/${req.file.filename}`
     } else {
       image = userData.image
+    }
+
+    if (user.password) {
+      user.password = bcrypt.hashSync(user.password, 10)
     }
 
     const updatedUser = await userService.update(id, user)

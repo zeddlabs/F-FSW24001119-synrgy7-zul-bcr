@@ -15,7 +15,6 @@ export class UserModel extends Model {
   $formatJson(json: any) {
     json = super.$formatJson(json);
     delete json.password;
-    delete json.role;
     return json;
   }
 }

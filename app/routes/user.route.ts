@@ -12,10 +12,10 @@ const userRouter: Router = Router()
 userRouter.route('/users')
   .get(controllers.api.v1.userController.index)
   .post(
-    upload.single('image'),
-    check('image').custom((value, { req }) => {
+    upload.single('avatar'),
+    check('avatar').custom((value, { req }) => {
       if (!req.file) {
-        throw new Error('Image is required')
+        throw new Error('Avatar is required')
       }
 
       return true
@@ -27,7 +27,7 @@ userRouter.route('/users')
 userRouter.route('/users/:id')
   .get(controllers.api.v1.userController.show)
   .put(
-    upload.single('image'),
+    upload.single('avatar'),
     checkSchema(updateUserValidationSchema),
     controllers.api.v1.userController.update
   )
