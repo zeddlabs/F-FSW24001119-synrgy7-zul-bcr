@@ -1,3 +1,4 @@
+import { CarModel } from "../models/car.model"
 import carRepository from "../repositories/car.repository"
 
 const getAll = async (): Promise<any> => {
@@ -14,20 +15,20 @@ const getAll = async (): Promise<any> => {
   }
 }
 
-const getById = async (id: string): Promise<any> => {
+const getById = async (id: string): Promise<CarModel> => {
   return await carRepository.getById(id)
 }
 
-const store = async (car: any): Promise<any> => {
+const store = async (car: CarModel): Promise<CarModel> => {
   return await carRepository.store(car)
 }
 
-const update = async (id: string, car: any): Promise<any> => {
+const update = async (id: string, car: CarModel): Promise<CarModel> => {
   return await carRepository.update(id, car)
 }
 
-const destroy = async (id: string): Promise<number> => {
-  return await carRepository.destroy(id)
+const destroy = async (id: string, deleted_by: number): Promise<CarModel> => {
+  return await carRepository.destroy(id, deleted_by)
 }
 
 export default {

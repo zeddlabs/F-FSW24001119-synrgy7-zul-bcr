@@ -1,6 +1,7 @@
 import { Request, Response } from "express"
 import carService from "../../../services/car.service"
 import { validationResult } from "express-validator"
+import IRequest from "../../../types/request.type"
 
 const index = async (req: Request, res: Response): Promise<any> => {
   try {
@@ -39,7 +40,7 @@ const show = async (req: Request, res: Response): Promise<any> => {
   }
 }
 
-const store = async (req: Request, res: Response): Promise<any> => {
+const store = async (req: IRequest, res: Response): Promise<any> => {
   try {
     const validateRequest = validationResult(req)
     if (!validateRequest.isEmpty()) {
@@ -54,7 +55,10 @@ const store = async (req: Request, res: Response): Promise<any> => {
 
     const image = `/public/uploads/images/${req.file!.filename}`
 
-    const newCar = await carService.store({ ...car, image })
+    const created_by = req.user.id
+    const updated_by = req.user.id
+
+    const newCar = await carService.store({ ...car, image, created_by, updated_by })
 
     res.status(201).json({
       status: 'OK',
@@ -69,7 +73,7 @@ const store = async (req: Request, res: Response): Promise<any> => {
   }
 }
 
-const update = async (req: Request, res: Response): Promise<any> => {
+const update = async (req: IRequest, res: Response): Promise<any> => {
   try {
     const validateRequest = validationResult(req)
     if (!validateRequest.isEmpty()) {
@@ -92,7 +96,9 @@ const update = async (req: Request, res: Response): Promise<any> => {
       image = carData.image
     }
 
-    const updatedCar = await carService.update(id, { ...car, image })
+    const updated_by = req.user.id
+
+    const updatedCar = await carService.update(id, { ...car, image, updated_by })
 
     res.status(200).json({
       status: 'OK',
@@ -107,11 +113,13 @@ const update = async (req: Request, res: Response): Promise<any> => {
   }
 }
 
-const destroy = async (req: Request, res: Response): Promise<any> => {
+const destroy = async (req: IRequest, res: Response): Promise<any> => {
   try {
     const { id } = req.params
 
-    await carService.destroy(id)
+    const deleted_by = Number(req.user.id)
+
+    await carService.destroy(id, deleted_by)
 
     res.status(200).json({
       status: 'OK',

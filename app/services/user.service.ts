@@ -15,8 +15,12 @@ const getAll = async (): Promise<any> => {
   }
 }
 
-const getById = async (id: string): Promise<any> => {
+const getById = async (id: string): Promise<UserModel> => {
   return await userRepository.getById(id)
+}
+
+const getByEmail = async (email: string): Promise<UserModel> => {
+  return await userRepository.getByEmail(email)
 }
 
 const store = async (user: User): Promise<UserModel> => {
@@ -34,6 +38,7 @@ const destroy = async (id: string): Promise<number> => {
 export default {
   getAll,
   getById,
+  getByEmail,
   store,
   update,
   destroy

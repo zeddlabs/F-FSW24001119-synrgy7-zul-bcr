@@ -13,6 +13,14 @@ const getById = async (id: MaybeCompositeId): Promise<UserModel> => {
     })
 }
 
+const getByEmail = async (email: string): Promise<UserModel> => {
+  return await UserModel.query()
+    .findOne({ email })
+    .throwIfNotFound({
+      message: 'User not found'
+    })
+}
+
 const store = async (user: User): Promise<UserModel> => {
   return await UserModel.query()
     .insert(user)
@@ -43,6 +51,7 @@ const getTotal = async (): Promise<number> => {
 export default {
   getAll,
   getById,
+  getByEmail,
   store,
   update,
   destroy,

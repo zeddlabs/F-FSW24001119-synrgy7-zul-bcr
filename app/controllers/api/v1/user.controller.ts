@@ -82,21 +82,21 @@ const update = async (req: Request, res: Response): Promise<any> => {
 
     const { id } = req.params
     const user = req.body
-    let image: string | undefined
+    let avatar: string | undefined
 
     const userData = await userService.getById(id)
 
     if (req.file) {
-      image = `/public/uploads/images/${req.file.filename}`
+      avatar = `/public/uploads/images/${req.file.filename}`
     } else {
-      image = userData.image
+      avatar = userData.avatar
     }
 
     if (user.password) {
       user.password = bcrypt.hashSync(user.password, 10)
     }
 
-    const updatedUser = await userService.update(id, user)
+    const updatedUser = await userService.update(id, { ...user, avatar })
 
     res.status(200).json({
       status: 'OK',

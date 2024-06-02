@@ -6,12 +6,15 @@ import {
   createCarValidationSchema, 
   updateCarValidationSchema 
 } from "../schemas/car.schema"
+import { isAdmin, jwtValidation } from "../middlewares/auth.middleware"
 
 const carRouter: Router = Router()
 
 carRouter.route('/cars')
   .get(controllers.api.v1.carController.index)
   .post(
+    jwtValidation as any,
+    isAdmin as any,
     upload.single('image'),
     check('image').custom((value, { req }) => {
       if (!req.file) {
@@ -21,16 +24,22 @@ carRouter.route('/cars')
       return true
     }),
     checkSchema(createCarValidationSchema),
-    controllers.api.v1.carController.store
+    controllers.api.v1.carController.store as any
   )
 
 carRouter.route('/cars/:id')
   .get(controllers.api.v1.carController.show)
   .put(
+    jwtValidation as any,
+    isAdmin as any,
     upload.single('image'),
     checkSchema(updateCarValidationSchema),
-    controllers.api.v1.carController.update
+    controllers.api.v1.carController.update as any
   )
-  .delete(controllers.api.v1.carController.destroy)
+  .delete(
+    jwtValidation as any,
+    isAdmin as any,
+    controllers.api.v1.carController.destroy as any
+  )
 
 export default carRouter
