@@ -4,33 +4,15 @@ import { CarModel } from "../models/car.model"
 const getAll = async (): Promise<CarModel[]> => {
   return await CarModel
     .query()
-    .select(
-      'id',
-      'name',
-      'rent_per_day',
-      'image',
-      'start_rent',
-      'finish_rent',
-      'created_at',
-      'updated_at'
-    )
-    .withGraphFetched('size')
+    .where('is_deleted', false)
+    .withGraphFetched('[size, createdBy, updatedBy, deletedBy]')
 }
 
 const getById = async (id: MaybeCompositeId): Promise<CarModel> => {
   return await CarModel.query()
     .findById(id)
-    .select(
-      'id',
-      'name',
-      'rent_per_day',
-      'image',
-      'start_rent',
-      'finish_rent',
-      'created_at',
-      'updated_at'
-    )
-    .withGraphFetched('size')
+    .where('is_deleted', false)
+    .withGraphFetched('[size, createdBy, updatedBy, deletedBy]')
     .throwIfNotFound({
       message: 'Car not found'
     })
@@ -38,17 +20,7 @@ const getById = async (id: MaybeCompositeId): Promise<CarModel> => {
 
 const store = async (car: CarModel): Promise<CarModel> => {
   return await CarModel.query()
-    .insert(car)
-    .returning([
-      'id',
-      'name',
-      'rent_per_day',
-      'image',
-      'start_rent',
-      'finish_rent',
-      'created_at',
-      'updated_at'
-    ])
+    .insertAndFetch(car)
     .withGraphFetched('size')
 }
 
@@ -56,16 +28,6 @@ const update = async (id: MaybeCompositeId, car: CarModel): Promise<CarModel> =>
   return await CarModel.query()
     .findById(id)
     .patchAndFetchById(id, car)
-    .select(
-      'id',
-      'name',
-      'rent_per_day',
-      'image',
-      'start_rent',
-      'finish_rent',
-      'created_at',
-      'updated_at'
-    )
     .withGraphFetched('size')
     .throwIfNotFound({ 
       message: 'Car not found' 

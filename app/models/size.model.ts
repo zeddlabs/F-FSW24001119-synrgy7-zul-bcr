@@ -18,7 +18,7 @@ export class SizeModel extends Model {
         to: 'cars.size_id'
       }
     }
-  };
+  }
 }
 
 export type Size = ModelObject<SizeModel>

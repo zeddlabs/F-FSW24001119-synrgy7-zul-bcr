@@ -10,6 +10,10 @@ export async function up(knex: Knex): Promise<void> {
     table.string('image').notNullable()
     table.date('start_rent')
     table.date('finish_rent')
+    table.integer('created_by').unsigned()
+    table.integer('updated_by').unsigned()
+    table.integer('deleted_by').unsigned()
+    table.boolean('is_deleted').defaultTo(false)
     table.timestamps(true, true)
 
     table.foreign('size_id').references('id').inTable('sizes').onDelete('CASCADE')

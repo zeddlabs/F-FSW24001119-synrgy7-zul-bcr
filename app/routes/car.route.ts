@@ -2,7 +2,10 @@ import { Router } from "express"
 import controllers from "../controllers"
 import upload from "../middlewares/multer.middleware"
 import { check, checkSchema } from "express-validator"
-import { createCarValidationSchema, updateCarValidationSchema } from "../schemas/car.schema"
+import { 
+  createCarValidationSchema, 
+  updateCarValidationSchema 
+} from "../schemas/car.schema"
 
 const carRouter: Router = Router()
 
