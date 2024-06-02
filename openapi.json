@@ -110,6 +110,27 @@
                 }
             }
         },
+        "/api/v1/user/current": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Get Current User",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
         "/api/v1/cars": {
             "get": {
                 "tags": [
@@ -506,27 +527,6 @@
                     "Users"
                 ],
                 "summary": "Delete User",
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful response",
-                        "content": {
-                            "application/json": {}
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v1/user/current": {
-            "get": {
-                "tags": [
-                    "Users"
-                ],
-                "summary": "Get Current User",
                 "security": [
                     {
                         "bearerAuth": []
