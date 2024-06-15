@@ -9,7 +9,6 @@ import {
   CtaBanner,
   Faq,
 } from "@/components/sections"
-import React from "react"
 
 export default function LandingPage() {
   return (

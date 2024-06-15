@@ -1,4 +1,3 @@
-import React from "react"
 import heroImage from "@/assets/images/img_car.png"
 
 export default function Hero() {

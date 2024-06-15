@@ -1,4 +1,3 @@
-import React from "react"
 import serviceImage from "@/assets/images/img_service.png"
 import { ServiceItem } from "../ui"
 

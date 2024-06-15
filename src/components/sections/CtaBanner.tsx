@@ -1,5 +1,3 @@
-import React from "react"
-
 export default function CtaBanner() {
   return (
     <section className='cta section container' id='cta-banner'>

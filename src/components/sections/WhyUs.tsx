@@ -1,4 +1,3 @@
-import React from "react"
 import { FiAward, FiClock, FiTag, FiThumbsUp } from "react-icons/fi"
 
 export default function WhyUs() {
