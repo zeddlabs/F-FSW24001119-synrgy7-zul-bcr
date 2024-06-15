@@ -85,6 +85,10 @@ body {
   z-index: 1030;
 }
 
+.nav-link {
+  cursor: pointer;
+}
+
 .navbar-toggler {
   border: none;
 
@@ -96,13 +100,11 @@ body {
 .navbar-toggler-icon {
   width: 24px;
   height: 24px;
-  background-image: url("../icons/fi_menu.svg");
 }
 
 .navbar__btn-close {
   width: 24px;
   height: 24px;
-  background-image: url("../icons/fi_x.svg");
   opacity: 1;
 }
 
@@ -374,13 +376,6 @@ body {
 .faq__accordion .accordion-button {
   padding: 1.125rem 1.5rem;
   font-weight: 300;
-}
-
-.faq__accordion .accordion-button::after {
-  width: 24px;
-  height: 24px;
-  background-size: 24px;
-  background-image: url("../icons/fi_chevron-down.svg");
 }
 
 .footer {
