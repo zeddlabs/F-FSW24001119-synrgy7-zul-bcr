@@ -1,5 +1,5 @@
 import React from "react"
-import { AccordionItem } from "../ui/Faq"
+import { AccordionItem } from "../ui"
 
 export default function Faq() {
   return (

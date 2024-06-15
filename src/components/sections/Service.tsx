@@ -1,6 +1,6 @@
 import React from "react"
 import serviceImage from "@/assets/images/img_service.png"
-import { FiCheck } from "react-icons/fi"
+import { ServiceItem } from "../ui"
 
 export default function Service() {
   return (
@@ -20,36 +20,11 @@ export default function Service() {
             meeting, dll.
           </p>
           <ul className='service__list'>
-            <li className='service__list-item'>
-              <div className='service__list-icon'>
-                <FiCheck color='#0D28A6' />
-              </div>
-              Sewa Mobil Dengan Supir di Sumatera Utara 12 Jam
-            </li>
-            <li className='service__list-item'>
-              <div className='service__list-icon'>
-                <FiCheck color='#0D28A6' />
-              </div>
-              Sewa Mobil Lepas Kunci di Sumatera Utara 24 Jam
-            </li>
-            <li className='service__list-item'>
-              <div className='service__list-icon'>
-                <FiCheck color='#0D28A6' />
-              </div>
-              Sewa Mobil Jangka Panjang Bulanan
-            </li>
-            <li className='service__list-item'>
-              <div className='service__list-icon'>
-                <FiCheck color='#0D28A6' />
-              </div>
-              Gratis Antar - Jemput Mobil di Bandara
-            </li>
-            <li className='service__list-item'>
-              <div className='service__list-icon'>
-                <FiCheck color='#0D28A6' />
-              </div>
-              Layanan Airport Transfer / Drop In Out
-            </li>
+            <ServiceItem text='Sewa Mobil Dengan Supir di Sumatera Utara 12 Jam' />
+            <ServiceItem text='Sewa Mobil Lepas Kunci di Sumatera Utara 24 Jam' />
+            <ServiceItem text='Sewa Mobil Jangka Panjang Bulanan' />
+            <ServiceItem text='Gratis Antar - Jemput Mobil di Bandara' />
+            <ServiceItem text='Layanan Airport Transfer / Drop In Out' />
           </ul>
         </div>
       </div>
