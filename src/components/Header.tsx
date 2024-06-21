@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { FiMenu, FiX } from "react-icons/fi"
-import { Link } from "react-scroll"
 
 export default function Header() {
   const [collapsed, setCollapsed] = useState(true)
@@ -12,7 +11,7 @@ export default function Header() {
     <header className='header'>
       <nav className='navbar position-absolute top-0 start-0 end-0 navbar-expand-lg bg-transparent'>
         <div className='container'>
-          <a className='navbar-brand' href='#'>
+          <a className='navbar-brand' href={`/`}>
             Binar Car Rental
           </a>
           <button
@@ -51,56 +50,36 @@ export default function Header() {
             <div className='offcanvas-body'>
               <ul className='navbar-nav justify-content-end flex-grow-1 pe-3'>
                 <li className='nav-item'>
-                  <Link
-                    to='our-services'
-                    spy={true}
-                    smooth={true}
-                    offset={50}
-                    duration={300}
+                  <a
+                    href={`/#our-services`}
                     className='nav-link'
                     onClick={closeNavbar}
                   >
                     Our Services
-                  </Link>
+                  </a>
                 </li>
                 <li className='nav-item'>
-                  <Link
-                    to='why-us'
-                    spy={true}
-                    smooth={true}
-                    offset={50}
-                    duration={300}
+                  <a
+                    href={`/#why-us`}
                     className='nav-link'
                     onClick={closeNavbar}
                   >
                     Why Us
-                  </Link>
+                  </a>
                 </li>
                 <li className='nav-item'>
-                  <Link
-                    to='testimonial'
-                    spy={true}
-                    smooth={true}
-                    offset={50}
-                    duration={300}
+                  <a
+                    href={`/#testimonial`}
                     className='nav-link'
                     onClick={closeNavbar}
                   >
                     Testimonial
-                  </Link>
+                  </a>
                 </li>
                 <li className='nav-item'>
-                  <Link
-                    to='faq'
-                    spy={true}
-                    smooth={true}
-                    offset={50}
-                    duration={300}
-                    className='nav-link'
-                    onClick={closeNavbar}
-                  >
+                  <a href={`/#faq`} className='nav-link' onClick={closeNavbar}>
                     FAQ
-                  </Link>
+                  </a>
                 </li>
               </ul>
               <a className='navbar__register-button btn btn-success' href='#'>

@@ -1,6 +1,10 @@
 import heroImage from "@/assets/images/img_car.png"
 
-export default function Hero() {
+type HeroProps = {
+  children?: React.ReactNode
+}
+
+export default function Hero({ children }: HeroProps) {
   return (
     <section className='hero section container'>
       <div className='row align-items-center justify-content-between gap-5'>
@@ -13,9 +17,7 @@ export default function Hero() {
             terbaik dengan harga terjangkau. Selalu siap melayani kebutuhanmu
             untuk sewa mobil selama 24 jam.
           </p>
-          <a href='#' className='hero__cta btn btn-success'>
-            Mulai Sewa Mobil
-          </a>
+          {children}
         </div>
         <div className='hero__img col-lg'>
           <img className='img-fluid' src={heroImage} alt='' />

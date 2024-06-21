@@ -85,10 +85,6 @@ body {
   z-index: 1030;
 }
 
-.nav-link {
-  cursor: pointer;
-}
-
 .navbar-toggler {
   border: none;
 
@@ -100,11 +96,13 @@ body {
 .navbar-toggler-icon {
   width: 24px;
   height: 24px;
+  background-image: url("../icons/fi_menu.svg");
 }
 
 .navbar__btn-close {
   width: 24px;
   height: 24px;
+  background-image: url("../icons/fi_x.svg");
   opacity: 1;
 }
 
@@ -378,6 +376,13 @@ body {
   font-weight: 300;
 }
 
+.faq__accordion .accordion-button::after {
+  width: 24px;
+  height: 24px;
+  background-size: 24px;
+  background-image: url("../icons/fi_chevron-down.svg");
+}
+
 .footer {
   display: flex;
   flex-direction: column;
@@ -422,6 +427,288 @@ body {
   text-decoration: none;
   color: #000;
   font-weight: 400;
+}
+
+/* SEARCH PAGE STYLES */
+.filter__panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px 0px #00000026;
+  padding: 1.5rem;
+  border-radius: .5rem;
+  margin-top: -40px;
+  z-index: 1031;
+}
+
+body:has(.offcanvas.show) .filter__panel {
+  z-index: 1029;
+}
+
+.filter__panel.active {
+  clip-path: inset(-100vmax -100vmax);
+  box-shadow: 0 0 100vmax 100vmax rgba(0, 0, 0, .6);
+}
+
+.filter__panel .row {
+  width: 100%;
+}
+
+.filter__btn {
+  flex-shrink: 0;
+}
+
+.filter__form-group {
+  position: relative;
+}
+
+.filter__label {
+  display: inline-block;
+  margin-bottom: 0.25rem;
+  color: var(--neutral-04);
+}
+
+.filter__dropdown-btn, .filter__date-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem .75rem;
+  border: 1px solid var(--neutral-02);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.filter__dropdown-btn.active, .filter__date-btn.active {
+  border-color: var(--lime-green-04);
+}
+
+#driver.filter__dropdown-btn.active .icon {
+  transform: rotate(180deg);
+}
+
+.filter__dropdown-btn.active ~ .filter__dropdown, .filter__date-btn.active ~ .datepicker {
+  display: block;
+}
+
+.filter__dropdown-btn span, .filter__date-btn span {
+  flex-grow: 1;
+  color: var(--neutral-03);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.filter__dropdown-btn.active span, .filter__date-btn.active span {
+  color: var(--neutral-04);
+}
+
+.filter__dropdown-btn .icon, .filter__date-btn .icon {
+  flex-grow: 0;
+}
+
+.filter__dropdown {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 4px);
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0px 2px 16px 0px #0000001A;
+  display: none;
+  z-index: 1;
+}
+
+.filter__dropdown-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem .75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter__dropdown-item.active, .filter__dropdown-item:hover {
+  background-color: var(--lime-green-02);
+  color: var(--lime-green-04);
+  font-weight: 500;
+}
+
+.filter__input-box {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding-right: 0.75rem;
+  border: 1px solid var(--neutral-02);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.filter__input-box input {
+  border: none;
+  outline: none;
+  width: 100%;
+  background-color: transparent;
+  padding: 0.5rem .75rem;
+  color: var(--neutral-03);
+  font-weight: 300;
+}
+
+.filter__input-box input::placeholder {
+  color: var(--neutral-03);
+  font-weight: 300;
+}
+
+.filter__input-box input:focus {
+  border-color: var(--lime-green-04);
+}
+
+.filter__input-box .icon {
+  flex-shrink: 0;
+}
+
+.filter__btn {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.datepicker {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 4px);
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 2px;
+  box-shadow: 0px 2px 16px 0px #0000001A;
+  display: none;
+  z-index: 1;
+}
+
+.days, .dates {
+  display: grid;
+  grid-template-columns: repeat(7, 36px);
+  gap: .25rem;
+}
+
+.days span {
+  text-align: center;
+  font-weight: 400;
+}
+
+.dates button {
+  aspect-ratio: 1;
+  border-radius: 2px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  font-weight: 300;
+  transition: .3s;
+}
+
+.dates button:hover, .dates button.selected {
+  background-color: var(--lime-green-04);
+  color: #fff;
+  font-weight: 400;
+}
+
+.dates button:disabled {
+  pointer-events: none;
+  user-select: none;
+}
+
+.dates button.today {
+  background-color: var(--lime-green-02);
+  color: var(--lime-green-05);
+  font-weight: 400;
+}
+
+.datepicker__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.datepicker__header div {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.datepicker__header select, .datepicker__header input {
+  font-size: 1rem;
+  border: 1px solid var(--neutral-02);
+  padding-block: 5px;
+  height: 100%;
+}
+
+.datepicker__header input {
+  max-width: 64px;
+  padding-block: 6px;
+}
+
+.datepicker__header button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.datepicker__footer {
+  margin-top: 1rem;
+}
+
+.result {
+  margin-bottom: 6.25rem;
+}
+
+.result__car-image {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.result__card-body {
+  padding: 1rem 1.5rem 1.5rem;
+}
+
+.result__card-body p {
+  margin-bottom: 0.5rem;
+}
+
+.result__car-price {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.result__car-desc {
+  font-weight: 300;
+}
+
+.result__car-features {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+.result__car-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.result__car-features:last-child {
+  margin-bottom: 1.5rem;
+}
+
+.choose-car__btn {
+  padding: 0.5rem 1rem;
+  border-radius: 2px;
+  font-weight: 500;
 }
 
 @media screen and (min-width: 620px) {
@@ -481,5 +768,23 @@ body {
 
   .testimonial {
     --bs-gutter-x: 0;
+  }
+
+  .filter__panel {
+    flex-direction: row;
+    align-items: end;
+    justify-content: flex-end;
+    margin-top: -20px;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .filter__panel {
+    max-width: 1150px;
+    margin-top: -50px;
+  }
+
+  .result {
+    max-width: 1150px;
   }
 }

@@ -1,28 +1,24 @@
-import Footer from "@/components/Footer"
-import Header from "@/components/Header"
-import Main from "@/components/Main"
 import {
-  Hero,
-  Service,
-  WhyUs,
-  Testimonial,
   CtaBanner,
   Faq,
+  Hero,
+  Service,
+  Testimonial,
+  WhyUs,
 } from "@/components/sections"
+import { HeroCta } from "@/components/ui"
 
 export default function LandingPage() {
   return (
     <>
-      <Header />
-      <Main>
-        <Hero />
-        <Service />
-        <WhyUs />
-        <Testimonial />
-        <CtaBanner />
-        <Faq />
-      </Main>
-      <Footer />
+      <Hero>
+        <HeroCta />
+      </Hero>
+      <Service />
+      <WhyUs />
+      <Testimonial />
+      <CtaBanner />
+      <Faq />
     </>
   )
 }

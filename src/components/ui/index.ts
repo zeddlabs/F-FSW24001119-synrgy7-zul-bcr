@@ -1,2 +1,5 @@
 export { default as AccordionItem } from "./AccordionItem"
 export { default as ServiceItem } from "./ServiceItem"
+export { default as HeroCta } from "./HeroCta"
+export { default as FilterForm } from "./FilterForm"
+export { default as Select } from "./Select"
