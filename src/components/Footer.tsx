@@ -5,6 +5,7 @@ import {
   FiTwitch,
   FiTwitter,
 } from "react-icons/fi"
+import { Link } from "react-router-dom"
 
 export default function Footer() {
   return (
@@ -17,18 +18,18 @@ export default function Footer() {
         <p className='footer__phone'>081-233-334-808</p>
       </div>
       <div className='footer__navigation'>
-        <a href='#our-servicess' className='footer__navigation-item'>
+        <Link to='/#our-services' className='footer__navigation-item'>
           Our Services
-        </a>
-        <a href='#why-us' className='footer__navigation-item'>
+        </Link>
+        <Link to='/#why-us' className='footer__navigation-item'>
           Why Us
-        </a>
-        <a href='#testimonial' className='footer__navigation-item'>
+        </Link>
+        <Link to='/#testimonial' className='footer__navigation-item'>
           Testimonial
-        </a>
-        <a href='#faq' className='footer__navigation-item'>
+        </Link>
+        <Link to='/#faq' className='footer__navigation-item'>
           FAQ
-        </a>
+        </Link>
       </div>
       <div className='footer__socials'>
         <p>Connect with us</p>
@@ -52,9 +53,9 @@ export default function Footer() {
       </div>
       <div className='footer__copyright'>
         <p>Copyright Binar 2024</p>
-        <a href='#' className='footer__brand'>
+        <Link to='/' className='footer__brand'>
           Binar Car Rental
-        </a>
+        </Link>
       </div>
     </footer>
   )

@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { FiMenu, FiX } from "react-icons/fi"
+import { Link } from "react-router-dom"
 
 export default function Header() {
   const [collapsed, setCollapsed] = useState(true)
@@ -11,9 +12,9 @@ export default function Header() {
     <header className='header'>
       <nav className='navbar position-absolute top-0 start-0 end-0 navbar-expand-lg bg-transparent'>
         <div className='container'>
-          <a className='navbar-brand' href={`/`}>
+          <Link className='navbar-brand' to='/'>
             Binar Car Rental
-          </a>
+          </Link>
           <button
             className='navbar-toggler'
             type='button'
@@ -50,41 +51,44 @@ export default function Header() {
             <div className='offcanvas-body'>
               <ul className='navbar-nav justify-content-end flex-grow-1 pe-3'>
                 <li className='nav-item'>
-                  <a
-                    href={`/#our-services`}
+                  <Link
+                    to='/#our-services'
                     className='nav-link'
                     onClick={closeNavbar}
                   >
                     Our Services
-                  </a>
+                  </Link>
                 </li>
                 <li className='nav-item'>
-                  <a
-                    href={`/#why-us`}
+                  <Link
+                    to='/#why-us'
                     className='nav-link'
                     onClick={closeNavbar}
                   >
                     Why Us
-                  </a>
+                  </Link>
                 </li>
                 <li className='nav-item'>
-                  <a
-                    href={`/#testimonial`}
+                  <Link
+                    to='/#testimonial'
                     className='nav-link'
                     onClick={closeNavbar}
                   >
                     Testimonial
-                  </a>
+                  </Link>
                 </li>
                 <li className='nav-item'>
-                  <a href={`/#faq`} className='nav-link' onClick={closeNavbar}>
+                  <Link to='/#faq' className='nav-link' onClick={closeNavbar}>
                     FAQ
-                  </a>
+                  </Link>
                 </li>
               </ul>
-              <a className='navbar__register-button btn btn-success' href='#'>
+              <Link
+                className='navbar__register-button btn btn-success'
+                to='/sign-up'
+              >
                 Register
-              </a>
+              </Link>
             </div>
           </div>
         </div>
