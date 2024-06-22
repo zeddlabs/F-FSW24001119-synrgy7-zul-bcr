@@ -70,7 +70,7 @@ const signUp = async (req: Request, res: Response): Promise<any> => {
       avatar = `/public/uploads/images/${req.file!.filename}`
     }
     const password = bcrypt.hashSync(user.password, 10)
-    const role = "Member"
+    const role = "Customer"
     const newUser = await userService.store({ ...user, avatar, password, role })
 
     res.status(201).json({
