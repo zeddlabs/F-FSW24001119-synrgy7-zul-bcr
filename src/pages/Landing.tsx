@@ -1,3 +1,4 @@
+import { Footer, Header, Main } from "@/components"
 import {
   CtaBanner,
   Faq,
@@ -11,14 +12,18 @@ import { HeroCta } from "@/components/ui"
 export default function LandingPage() {
   return (
     <>
-      <Hero>
-        <HeroCta />
-      </Hero>
-      <Service />
-      <WhyUs />
-      <Testimonial />
-      <CtaBanner />
-      <Faq />
+      <Header />
+      <Main>
+        <Hero>
+          <HeroCta />
+        </Hero>
+        <Service />
+        <WhyUs />
+        <Testimonial />
+        <CtaBanner />
+        <Faq />
+      </Main>
+      <Footer />
     </>
   )
 }

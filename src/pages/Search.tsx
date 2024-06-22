@@ -1,3 +1,4 @@
+import { Footer, Header, Main } from "@/components"
 import { Hero } from "@/components/sections"
 import { FilterForm } from "@/components/ui"
 import { Car } from "@/types/car"
@@ -41,56 +42,61 @@ export default function SearchPage() {
 
   return (
     <>
-      <Hero />
-      <FilterForm cars={cars} setCars={setFilteredCars} />
-      <section className='result container'>
-        <div className='row gy-4' id='carContainer'>
-          {filteredCars.map((car, index) => (
-            <div className='col-md-6 col-lg-4' key={index}>
-              <div className='card'>
-                <img
-                  src={car.image}
-                  className='card-img-top result__car-image'
-                  alt=''
-                />
-                <div className='card-body result__card-body'>
-                  <p className='result__car-name'>
-                    {car.manufacture + " " + car.model}
-                  </p>
-                  <p className='result__car-price'>
-                    {car.rentPerDay.toLocaleString("id-ID", {
-                      style: "currency",
-                      currency: "IDR",
-                    })}{" "}
-                    / hari
-                  </p>
-                  <p className='result__car-desc'>{car.description}</p>
-                  <ul className='result__car-features'>
-                    <li className='result__car-feature'>
-                      <FiUsers size={20} color='#8A8A8A' /> {car.capacity} Orang
-                    </li>
-                    <li className='result__car-feature'>
-                      <FiSettings size={20} color='#8A8A8A' />{" "}
-                      {car.transmission}
-                    </li>
-                    <li className='result__car-feature'>
-                      <FiCalendar size={20} color='#8A8A8A' />
-                      Tahun {car.year}
-                    </li>
-                    <li className='result__car-feature'>
-                      <FiUsers size={20} color='#8A8A8A' />
-                      {car.driverType}
-                    </li>
-                  </ul>
-                  <button className='btn btn-success w-100 choose-car__btn'>
-                    Pilih Mobil
-                  </button>
+      <Header />
+      <Main>
+        <Hero />
+        <FilterForm cars={cars} setCars={setFilteredCars} />
+        <section className='result container'>
+          <div className='row gy-4' id='carContainer'>
+            {filteredCars.map((car, index) => (
+              <div className='col-md-6 col-lg-4' key={index}>
+                <div className='card'>
+                  <img
+                    src={car.image}
+                    className='card-img-top result__car-image'
+                    alt=''
+                  />
+                  <div className='card-body result__card-body'>
+                    <p className='result__car-name'>
+                      {car.manufacture + " " + car.model}
+                    </p>
+                    <p className='result__car-price'>
+                      {car.rentPerDay.toLocaleString("id-ID", {
+                        style: "currency",
+                        currency: "IDR",
+                      })}{" "}
+                      / hari
+                    </p>
+                    <p className='result__car-desc'>{car.description}</p>
+                    <ul className='result__car-features'>
+                      <li className='result__car-feature'>
+                        <FiUsers size={20} color='#8A8A8A' /> {car.capacity}{" "}
+                        Orang
+                      </li>
+                      <li className='result__car-feature'>
+                        <FiSettings size={20} color='#8A8A8A' />{" "}
+                        {car.transmission}
+                      </li>
+                      <li className='result__car-feature'>
+                        <FiCalendar size={20} color='#8A8A8A' />
+                        Tahun {car.year}
+                      </li>
+                      <li className='result__car-feature'>
+                        <FiUsers size={20} color='#8A8A8A' />
+                        {car.driverType}
+                      </li>
+                    </ul>
+                    <button className='btn btn-success w-100 choose-car__btn'>
+                      Pilih Mobil
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
+      </Main>
+      <Footer />
     </>
   )
 }
