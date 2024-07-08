@@ -147,9 +147,9 @@ export default function Testimonial() {
               <path
                 d='M15 18L9 12L15 6'
                 stroke='#222222'
-                stroke-width='2'
-                stroke-linecap='round'
-                stroke-linejoin='round'
+                strokeWidth='2'
+                strokeLinecap='round'
+                strokeLinejoin='round'
               />
             </svg>
           </div>
@@ -165,166 +165,14 @@ export default function Testimonial() {
               <path
                 d='M9 18L15 12L9 6'
                 stroke='#222222'
-                stroke-width='2'
-                stroke-linecap='round'
-                stroke-linejoin='round'
+                strokeWidth='2'
+                strokeLinecap='round'
+                strokeLinejoin='round'
               />
             </svg>
           </div>
         </div>
       </div>
-      {/* <div className='testimonial__swiper'>
-        <div className='swiper'>
-          <div className='swiper-wrapper'>
-            <div className='swiper-slide'>
-              <div className='testimonial__card card h-100'>
-                <div className='card-body'>
-                  <div className='testimonial__photo'>
-                    <img
-                      className='img-fluid'
-                      src='assets/images/img_photo_1.png'
-                      alt=''
-                    />
-                  </div>
-                  <div className='testimonial__data'>
-                    <div className='testimonial__rating'>
-                      <img src='assets/icons/fi_star.svg' alt='' />
-                      <img src='assets/icons/fi_star.svg' alt='' />
-                      <img src='assets/icons/fi_star.svg' alt='' />
-                      <img src='assets/icons/fi_star.svg' alt='' />
-                      <img src='assets/icons/fi_star.svg' alt='' />
-                    </div>
-                    <p className='testimonial__text card-text'>
-                      “Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod lorem ipsum dolor sit amet, consectetur
-                      adipiscing elit, sed do eiusmod lorem ipsum dolor sit
-                      amet, consectetur adipiscing elit, sed do eiusmod”
-                    </p>
-                    <p className='testimonial__info mb-0'>John Dee 32, Bromo</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className='swiper-slide'>
-              <div className='testimonial__card card h-100'>
-                <div className='card-body'>
-                  <div className='testimonial__photo'>
-                    <img
-                      className='img-fluid'
-                      src='assets/images/img_photo_2.png'
-                      alt=''
-                    />
-                  </div>
-                  <div className='testimonial__data'>
-                    <div className='testimonial__rating'>
-                      <img src='assets/icons/fi_star.svg' alt='' />
-                      <img src='assets/icons/fi_star.svg' alt='' />
-                      <img src='assets/icons/fi_star.svg' alt='' />
-                      <img src='assets/icons/fi_star.svg' alt='' />
-                      <img src='assets/icons/fi_star.svg' alt='' />
-                    </div>
-                    <p className='testimonial__text card-text'>
-                      “Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod lorem ipsum dolor sit amet, consectetur
-                      adipiscing elit, sed do eiusmod lorem ipsum dolor sit
-                      amet, consectetur adipiscing elit, sed do eiusmod”
-                    </p>
-                    <p className='testimonial__info mb-0'>John Dee 32, Bromo</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className='swiper-slide'>
-              <div className='testimonial__card card h-100'>
-                <div className='card-body'>
-                  <div className='testimonial__photo'>
-                    <img
-                      className='img-fluid'
-                      src='assets/images/img_photo_1.png'
-                      alt=''
-                    />
-                  </div>
-                  <div className='testimonial__data'>
-                    <div className='testimonial__rating'>
-                      <img src='assets/icons/fi_star.svg' alt='' />
-                      <img src='assets/icons/fi_star.svg' alt='' />
-                      <img src='assets/icons/fi_star.svg' alt='' />
-                      <img src='assets/icons/fi_star.svg' alt='' />
-                      <img src='assets/icons/fi_star.svg' alt='' />
-                    </div>
-                    <p className='testimonial__text card-text'>
-                      “Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod lorem ipsum dolor sit amet, consectetur
-                      adipiscing elit, sed do eiusmod lorem ipsum dolor sit
-                      amet, consectetur adipiscing elit, sed do eiusmod”
-                    </p>
-                    <p className='testimonial__info mb-0'>John Dee 32, Bromo</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className='swiper-slide'>
-              <div className='testimonial__card card h-100'>
-                <div className='card-body'>
-                  <div className='testimonial__photo'>
-                    <img
-                      className='img-fluid'
-                      src='assets/images/img_photo_2.png'
-                      alt=''
-                    />
-                  </div>
-                  <div className='testimonial__data'>
-                    <div className='testimonial__rating'>
-                      <img src='assets/icons/fi_star.svg' alt='' />
-                      <img src='assets/icons/fi_star.svg' alt='' />
-                      <img src='assets/icons/fi_star.svg' alt='' />
-                      <img src='assets/icons/fi_star.svg' alt='' />
-                      <img src='assets/icons/fi_star.svg' alt='' />
-                    </div>
-                    <p className='testimonial__text card-text'>
-                      “Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod lorem ipsum dolor sit amet, consectetur
-                      adipiscing elit, sed do eiusmod lorem ipsum dolor sit
-                      amet, consectetur adipiscing elit, sed do eiusmod”
-                    </p>
-                    <p className='testimonial__info mb-0'>John Dee 32, Bromo</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className='swiper-slide'>
-              <div className='testimonial__card card h-100'>
-                <div className='card-body'>
-                  <div className='testimonial__photo'>
-                    <img
-                      className='img-fluid'
-                      src='assets/images/img_photo_1.png'
-                      alt=''
-                    />
-                  </div>
-                  <div className='testimonial__data'>
-                    <div className='testimonial__rating'>
-                      <img src='assets/icons/fi_star.svg' alt='' />
-                      <img src='assets/icons/fi_star.svg' alt='' />
-                      <img src='assets/icons/fi_star.svg' alt='' />
-                      <img src='assets/icons/fi_star.svg' alt='' />
-                      <img src='assets/icons/fi_star.svg' alt='' />
-                    </div>
-                    <p className='testimonial__text card-text'>
-                      “Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod lorem ipsum dolor sit amet, consectetur
-                      adipiscing elit, sed do eiusmod lorem ipsum dolor sit
-                      amet, consectetur adipiscing elit, sed do eiusmod”
-                    </p>
-                    <p className='testimonial__info mb-0'>John Dee 32, Bromo</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-      </div> */}
     </section>
   )
 }

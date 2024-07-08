@@ -1,4 +1,5 @@
 import imgBg from "@/assets/images/img_bg.png"
+import { axiosInstance } from "@/libs/axios"
 import { useState } from "react"
 import { Link } from "react-router-dom"
 
@@ -13,38 +14,34 @@ type ValidationError = {
 export default function RegisterPage() {
   const [isSuccess, setIsSuccess] = useState(false)
   const [isError, setIsError] = useState(false)
+  const [errorMsg, setErrorMsg] = useState("")
   const [errors, setErrors] = useState<ValidationError[]>([])
 
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    const formData = new FormData()
-    formData.append("name", name)
-    formData.append("email", email)
-    formData.append("password", password)
+    try {
+      const { data } = await axiosInstance.post("/auth/sign-up", {
+        name,
+        email,
+        password,
+      })
 
-    fetch("http://localhost:8000/api/v1/auth/sign-up", {
-      method: "POST",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.status === "OK") {
-          setIsSuccess(true)
-          setIsError(false)
-        } else {
-          setIsError(true)
-          setIsSuccess(false)
-          setErrors(data.errors)
-        }
-      })
-      .catch((error) => {
-        console.error("Error:", error)
-      })
+      if (data.status === "OK") {
+        setIsSuccess(true)
+        setIsError(false)
+        setErrors([])
+      }
+    } catch (error: any) {
+      setIsSuccess(false)
+      setIsError(true)
+      setErrorMsg(error.response.data.message)
+      setErrors(error.response.data?.errors)
+    }
   }
 
   return (
@@ -69,6 +66,7 @@ export default function RegisterPage() {
           )}
           {isError && (
             <div className='alert alert-danger' role='alert'>
+              <p>{errorMsg}</p>
               {errors.map((error, index) => (
                 <li key={index}>{error.msg}</li>
               ))}

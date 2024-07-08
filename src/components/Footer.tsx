@@ -18,18 +18,18 @@ export default function Footer() {
         <p className='footer__phone'>081-233-334-808</p>
       </div>
       <div className='footer__navigation'>
-        <Link to='/#our-services' className='footer__navigation-item'>
+        <a href='#our-services' className='footer__navigation-item'>
           Our Services
-        </Link>
-        <Link to='/#why-us' className='footer__navigation-item'>
+        </a>
+        <a href='#why-us' className='footer__navigation-item'>
           Why Us
-        </Link>
-        <Link to='/#testimonial' className='footer__navigation-item'>
+        </a>
+        <a href='#testimonial' className='footer__navigation-item'>
           Testimonial
-        </Link>
-        <Link to='/#faq' className='footer__navigation-item'>
+        </a>
+        <a href='#faq' className='footer__navigation-item'>
           FAQ
-        </Link>
+        </a>
       </div>
       <div className='footer__socials'>
         <p>Connect with us</p>

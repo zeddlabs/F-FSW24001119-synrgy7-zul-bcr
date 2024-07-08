@@ -1,4 +1,4 @@
-import { monthNames } from "@/constants/months"
+import { monthNames } from "@/constants"
 import {
   getNumberOfDaysInMonth,
   getNumberOfFirstDaysInNextMonth,

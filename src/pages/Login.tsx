@@ -1,4 +1,5 @@
 import imgBg from "@/assets/images/img_bg.png"
+import { axiosInstance } from "@/libs/axios"
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 
@@ -14,39 +15,34 @@ export default function LoginPage() {
   const navigate = useNavigate()
 
   const [isError, setIsError] = useState(false)
+  const [errorMsg, setErrorMsg] = useState("")
   const [errors, setErrors] = useState<ValidationError[]>([])
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    fetch("http://localhost:8000/api/v1/auth/sign-in", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data)
-        if (data.status === "OK") {
-          setIsError(false)
-
-          localStorage.setItem("user", JSON.stringify(data.data.user))
-          localStorage.setItem("token", data.data.token)
-
-          navigate("/dashboard")
-        } else {
-          setIsError(true)
-          setErrors(data.errors)
-        }
+    try {
+      const { data } = await axiosInstance.post("/auth/sign-in", {
+        email,
+        password,
       })
-      .catch((error) => {
-        console.error("Error:", error)
-      })
+
+      if (data.status === "OK") {
+        setIsError(false)
+
+        localStorage.setItem("user", JSON.stringify(data.data.user))
+        localStorage.setItem("token", data.data.token)
+
+        navigate("/dashboard")
+      }
+    } catch (error: any) {
+      setIsError(true)
+      setErrorMsg(error.response.data.message)
+      setErrors(error.response.data?.errors)
+    }
   }
 
   return (
@@ -62,6 +58,7 @@ export default function LoginPage() {
           <h1 className='login__title fs-4 fw-bold'>Welcome Back!</h1>
           {isError && (
             <div className='alert alert-danger' role='alert'>
+              <p>{errorMsg}</p>
               {errors.map((error, index) => (
                 <li key={index}>{error.msg}</li>
               ))}

@@ -711,6 +711,138 @@ body:has(.offcanvas.show) .filter__panel {
   font-weight: 500;
 }
 
+.login__content {
+  padding: 0 56px;
+}
+
+.login__title {
+  margin-bottom: 2rem;
+}
+
+.login__btn {
+  width: 100%;
+  background-color: var(--dark-blue-04);
+}
+
+.dashboard__wrapper {
+  background-color: #F4F5F7;
+}
+
+.main__sidebar {
+  background-color: var(--dark-blue-04);
+  max-width: 70px;
+}
+
+.main__logo {
+  width: 70px;
+  height: 70px;
+}
+
+.main__logo div {
+  width: 34px;
+  height: 34px;
+  background-color: var(--dark-blue-01);
+}
+
+.main__menu {
+  list-style: none;
+  padding-left: 0;
+}
+
+.main__menu-link {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.main__menu-link:hover, .main__menu-link.active {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.main__menu-link span {
+  font-size: 0.75rem;
+}
+
+.sidebar__brand {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar__brand-link {
+  font-size: 1.25rem;
+  font-weight: 400;
+  white-space: wrap;
+}
+
+.sidebar__menu {
+  padding: 0;
+  list-style: none;
+  padding-top: 1.5rem;
+}
+
+.sidebar__menu-header {
+  text-transform: uppercase;
+  color: var(--neutral-03);
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.sidebar__menu-list {
+  padding: 0;
+  list-style: none;
+}
+
+.sidebar__menu-link {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  color: var(--neutral-05);
+  font-weight: 400;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s;
+}
+
+.sidebar__menu-link:hover, .sidebar__menu-link.active {
+  font-weight: 500;
+  background-color: var(--dark-blue-01);
+}
+
+.topbar {
+  height: 70px;
+  background: #fff;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.05);
+  padding: 0 1.5rem;
+}
+
+.sidebar__toggle, .topbar__user-dropdown {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  padding: 0;
+  font-weight: 300;
+}
+
+.topbar__user {
+  gap: 0.5rem;
+}
+
+.topbar__user-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+}
+
 @media screen and (min-width: 620px) {
   .testimonial__desc {
     margin-bottom: 2.5rem;

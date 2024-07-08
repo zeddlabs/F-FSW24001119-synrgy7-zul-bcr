@@ -12,3 +12,5 @@ export const monthNames = [
   "November",
   "Desember",
 ]
+
+export const baseUrl = "http://localhost:8000"
