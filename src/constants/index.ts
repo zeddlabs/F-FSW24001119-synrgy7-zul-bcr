@@ -13,4 +13,4 @@ export const monthNames = [
   "Desember",
 ]
 
-export const baseUrl = "http://localhost:8000"
+export const baseUrl = "https://leading-alix-zul-labs-6423fb71.koyeb.app"
