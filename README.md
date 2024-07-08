@@ -1,30 +1,58 @@
-# React + TypeScript + Vite
+# Challenge 7 - Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Pada challenge di chapter ke-7 ini, kami melanjutkan Challenge dengan menambahkan fitur dashboard dengan React.js + TypeScript.
 
-Currently, two official plugins are available:
+## Table of contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Overview](#overview)
+  - [The Challenge](#the-challenge)
+  - [Quick Start](#quick-start)
+  - [Default Account](#default-account)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+- [Author](#author)
 
-## Expanding the ESLint configuration
+## Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### The Challenge
 
-- Configure the top-level `parserOptions` property like this:
+1. Membuat apps berbasis web menggunakan ReactJS
+2. Menerapkan React context dan fetching data dengan endpoint yang sudah disediakan
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+### Quick Start
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Clone repo: `git clone -b Challenge_7 --single-branch https://github.com/zulfikarpinem/F-FSW24001119-synrgy7-zul-bcr.git`
+- Pindah ke direktori yang baru di clone
+- Jalankan `pnpm install`
+- Base URL terdapat di `constants/index.ts`
+- Jalankan menggunakan `pnpm run dev`
+- That's it.
+
+### Default Account
+
+| Email         | Password | Role        |
+| ------------- | -------- | ----------- |
+| admin@bcr.com | admin    | Super Admin |
+
+## My process
+
+### Built with
+
+- TypeScript
+- [Bootstrap](https://getbootstrap.com/)
+- [React.js](https://react.dev/)
+- [Swiper](https://swiperjs.com/)
+- [SweetAlert2](https://sweetalert2.github.io/)
+
+### What I learned
+
+1. ReactJS
+2. React Router & Back-end Integration
+3. OAuth
+4. State Management
+5. React With TypeScript
+
+## Author
+
+- Mhd Zulfikar Pinem - [zulfikarm022@gmail.com](mailto:zulfikarm022@gmail.com)
